@@ -6,6 +6,9 @@ from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 
+# ##########################3
+# generate account dimention data , save into csv
+#############################
 
 start_date = datetime(2024, 9, 15)
 defaultargs = {
@@ -14,10 +17,12 @@ defaultargs = {
     'backfill': False
 }
 
+# pre-define args:
+# num_rows: num of rows generate_account_dim_data function will generated
 num_rows = 50
 output_file = './account_dim_large_data.csv'
 
-
+# staging generated data
 account_ids = []
 account_types = []
 statuses = []
@@ -26,7 +31,15 @@ balances = []
 opening_dates = []
 
 
-def generate_random_data(row_num):
+def generate_random_data(row_num:int):
+    '''
+    args:
+    row_num: row number, int
+
+    generate single record of account dimention table
+    six fields: account_id, account_type, status, 
+                customer_id, balance, and open date
+    '''
     account_id = f'A{row_num:08d}'
     account_type = random.choice(['SAVINGS', "CHECKING"])
     status = random.choice(['ACTIVE', 'INACTIVE'])
@@ -40,6 +53,9 @@ def generate_random_data(row_num):
     return account_id, account_type, status, customer_id, balance, opening_date_millis
 
 def generate_account_dim_data():
+    '''
+    generate pre-defined number of rows, and form a dataframe
+    '''
     row_num = 1
     while row_num <= num_rows:
         account_id, account_type, status, customer_id, balance, opening_date_millis = generate_random_data(row_num)
