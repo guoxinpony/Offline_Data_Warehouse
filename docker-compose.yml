@@ -20,8 +20,8 @@ x-airflow-common:
     AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL: 30
     AIRFLOW__SMTP__SMTP_HOST: 'smtp.gmail.com'
     AIRFLOW__SMTP__SMTP_MAIL_FROM: 'gx43881@gmail.com'
-    AIRFLOW__SMTP__SMTP_USER: 'gx43881@gmail.com'
-    AIRFLOW__SMTP__SMTP_PASSWORD: 'trfjzjrnpccrtcgb'
+    AIRFLOW__SMTP__SMTP_USER: ${AIRFLOW__SMTP__SMTP_USER}
+    AIRFLOW__SMTP__SMTP_PASSWORD: ${AIRFLOW__SMTP__SMTP_PASSWORD}
     AIRFLOW__SMTP__SMTP_PORT: '587'
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags

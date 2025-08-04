@@ -6,6 +6,9 @@ from airflow.operators.empty import EmptyOperator
 # plugin kafka_operator
 from kafka_operator import KafkaProduceOperator
 
+'''
+kafka producer, send transaction data to kafka
+'''
 
 start_date = datetime(2024, 9, 15)
 default_args = {
