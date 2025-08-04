@@ -11,4 +11,4 @@ logs/
 # tmp/logs/
 
 *.pyc
-*.env
+.env
