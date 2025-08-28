@@ -281,7 +281,7 @@ services:
       - POSTGRES_PASSWORD=superset
       - POSTGRES_DB=superset
     volumes:
-      - postgres-db-volume:/var/lib/postgresql/data
+      - superset-db-volume:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U superset -d superset || exit 1"]
       interval: 10s
@@ -297,3 +297,4 @@ networks:
 volumes:
   superset_home:
   postgres-db-volume: {}
+  superset-db-volume:
