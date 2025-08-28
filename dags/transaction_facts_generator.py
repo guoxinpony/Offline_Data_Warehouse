@@ -24,6 +24,7 @@ with DAG(
     default_args=default_args,
     description='Transaction fact data generator into kafka',
     schedule_interval=timedelta(days=1),
+    catchup=False,
     tags=['fact_data']
 ) as dag:
     start = EmptyOperator(

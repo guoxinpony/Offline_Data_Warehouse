@@ -3,7 +3,7 @@ from airflow.operators.bash import BashOperator
 from datetime import datetime
 
 '''
-send dimention data to pinot
+send test user dimention data to pinot
 '''
 
 start_date = datetime(2024, 9, 15)
@@ -23,13 +23,13 @@ with DAG(
 ) as dag:
     
     ingest_account_dim = BashOperator(
-    task_id='ingest_account_dim',
-    bash_command=(
-        'curl --fail-with-body --retry 3 -sS -X POST '
-        '-F file=@/opt/airflow/account_dim_large_data.csv '
-        '"http://pinot-controller:9000/ingestFromFile'
-        '?tableNameWithType=account_dim_OFFLINE'
-        '&batchConfigMapStr=%7B%22inputFormat%22%3A%22csv%22%2C%22recordReader.prop.delimiter%22%3A%22%2C%22%2C%22recordReader.prop.header%22%3A%22true%22%7D"'
+        task_id='ingest_account_dim',
+        bash_command=(
+            'curl --fail-with-body --retry 3 -sS -X POST '
+            '-F file=@/opt/airflow/account_dim_large_data.csv '
+            '"http://pinot-controller:9000/ingestFromFile'
+            '?tableNameWithType=account_dim_OFFLINE'
+            '&batchConfigMapStr=%7B%22inputFormat%22%3A%22csv%22%2C%22recordReader.prop.delimiter%22%3A%22%2C%22%7D"'
         )
     )
 
@@ -40,7 +40,7 @@ with DAG(
             '-F file=@/opt/airflow/customer_dim_large_data.csv '
             '"http://pinot-controller:9000/ingestFromFile'
             '?tableNameWithType=customer_dim_OFFLINE'
-            '&batchConfigMapStr=%7B%22inputFormat%22%3A%22csv%22%2C%22recordReader.prop.delimiter%22%3A%22%2C%22%2C%22recordReader.prop.header%22%3A%22true%22%7D"'
+            '&batchConfigMapStr=%7B%22inputFormat%22%3A%22csv%22%2C%22recordReader.prop.delimiter%22%3A%22%2C%22%7D"'
         )
     )
 
@@ -51,7 +51,7 @@ with DAG(
             '-F file=@/opt/airflow/branch_dim_large_data.csv '
             '"http://pinot-controller:9000/ingestFromFile'
             '?tableNameWithType=branch_dim_OFFLINE'
-            '&batchConfigMapStr=%7B%22inputFormat%22%3A%22csv%22%2C%22recordReader.prop.delimiter%22%3A%22%2C%22%2C%22recordReader.prop.header%22%3A%22true%22%7D"'
+            '&batchConfigMapStr=%7B%22inputFormat%22%3A%22csv%22%2C%22recordReader.prop.delimiter%22%3A%22%2C%22%7D"'
         )
     )
 

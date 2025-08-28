@@ -56,6 +56,7 @@ RUN PY_BIN="$(head -n1 "$(command -v superset)" | sed 's/^#!//')" && \
     echo "Using interpreter: $PY_BIN" && \
     "$PY_BIN" -m ensurepip --upgrade || true && \
     "$PY_BIN" -m pip install --upgrade pip setuptools wheel && \
+    # add required database connection compoent, search "superset supported database"
     "$PY_BIN" -m pip install --no-cache-dir mysqlclient pinotdb psycopg2-binary && \
     "$PY_BIN" -c "import sys, psycopg2, MySQLdb, pinotdb; print('deps ok for', sys.executable)"
 
