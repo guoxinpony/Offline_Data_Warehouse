@@ -6,6 +6,9 @@ from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 
+'''
+generate branch dim data randomly for test
+'''
 
 start_date = datetime(2024, 9, 15)
 default_args = {
@@ -88,6 +91,7 @@ with DAG('branch_dim_generator',
          description='Generate large branch dimension data CSV file',
          schedule_interval=timedelta(days=1),
          start_date=start_date,
+         catchup=False,
          tags=['schema']) as dag:
     start = EmptyOperator(
         task_id='start_task',

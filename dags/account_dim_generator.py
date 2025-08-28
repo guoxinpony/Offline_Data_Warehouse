@@ -6,7 +6,7 @@ from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 
-# ##########################3
+# ##########################
 # generate account dimention data , save into csv
 #############################
 
@@ -86,6 +86,7 @@ with DAG('account_dim_generator',
     description='Generate large account dimension data in a CSV file',
     schedule_interval=timedelta(days=1),
     start_date=start_date,
+    catchup=False,
     tags=['schema'])as dag:
 
     start = EmptyOperator(

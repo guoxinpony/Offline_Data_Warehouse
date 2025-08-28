@@ -80,6 +80,7 @@ with DAG('customer_dim_generator',
          description='A DAG to generate large customer dimension data',
          schedule_interval=timedelta(days=1),
          start_date=start_date,
+         catchup=False,
          tags=['dimension']) as dag:
     start = EmptyOperator(
         task_id='start_task',
