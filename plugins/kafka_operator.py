@@ -9,6 +9,9 @@ from datetime import datetime, timedelta
 
 from kafka import KafkaProducer
 
+'''
+generate data and send to kafka, used for DAG transaction_facts_generator;
+'''
 
 class KafkaProduceOperator(BaseOperator):
     @apply_defaults
