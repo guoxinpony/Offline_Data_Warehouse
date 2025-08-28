@@ -272,6 +272,8 @@ services:
     networks:
       - x1nguoguoguo
 
+
+# postgress for superset
   superset-db:
     image: postgres:13.0
     container_name: superset_db
