@@ -3,6 +3,8 @@
 
 The project uses Apache airflow, redpanda, Apache Pinot and Superset to build a realtime data warehouse, including data ingestion, transportation and visualization.
 
+
+
 ### How the system works?
 
 ##### ZooKeeper:
@@ -32,6 +34,8 @@ The project uses Apache airflow, redpanda, Apache Pinot and Superset to build a 
 - Drag-and-drop chart generation
 - Build interactive dashboards and reports.
 
+
+
 ### How to run the pipeline?
 
 ##### Install:
@@ -60,13 +64,9 @@ docker compose up -d
 
 
 
+### Data Warehouse Architechture
 
-
-
-
-
-
-
+![dw_archi](dw_archi.png)
 
 
 
