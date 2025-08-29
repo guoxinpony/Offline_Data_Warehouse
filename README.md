@@ -64,7 +64,7 @@ docker compose up -d
 
 
 
-### Data Warehouse Architechture
+### Data Warehouse Architecture: Star Schema
 
 ![dw_archi](dw_archi.png)
 
