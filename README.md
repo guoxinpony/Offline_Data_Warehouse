@@ -1,4 +1,4 @@
-# End to End Data Engineering Project: RealTime Data Warehouse
+# Offline Data Warehouse
 ![system-archi](system-archi.png)
 
 The project uses Apache airflow, redpanda, Apache Pinot and Superset to build a realtime data warehouse, including data ingestion, transportation and visualization.
