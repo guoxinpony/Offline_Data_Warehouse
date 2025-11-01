@@ -3,6 +3,12 @@
 
 The project uses Apache airflow, redpanda, Apache Pinot and Superset to build a realtime data warehouse, including data ingestion, transportation and visualization.
 
+### Useful URL:
+- What is Apache Airflow: https://github.com/apache/airflow
+- What is Redpanda: https://github.com/redpanda-data/redpanda
+- What is Apache Pinot: https://github.com/apache/pinot
+- What is Apache Superset: https://github.com/apache/superset
+
 
 
 ### How the system works?
